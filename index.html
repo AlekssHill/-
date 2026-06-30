@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЧТО БУДЕМ СМОТРЕТЬ????</title>
     <style>
-        /* Базовые стили темной темы и фона */
         body {
             background-color: #0d0d13;
             color: #e6e6fa;
@@ -15,12 +14,11 @@
             align-items: center;
             padding: 20px;
             margin: 0;
-            overflow-x: hidden; /* Чтобы не было горизонтальной прокрутки */
+            overflow-x: hidden;
         }
 
-        /* Основной контейнер с неоновым свечением */
         .container {
-            max-width: 800px; /* Увеличенная ширина для карточек */
+            max-width: 800px;
             width: 100%;
             background: rgba(26, 26, 46, 0.9);
             border: 2px solid #8a2be2;
@@ -32,7 +30,6 @@
             position: relative;
         }
 
-        /* Заголовки с неоновым эффектом */
         h1 {
             color: #a020f0;
             text-shadow: 0 0 10px #a020f0, 0 0 20px #8a2be2;
@@ -45,7 +42,6 @@
             margin-bottom: 25px;
         }
 
-        /* Стилизация GIF-баннера с пришельцами */
         .gif-banner {
             border-radius: 10px;
             filter: hue-rotate(50deg) saturate(1.5);
@@ -54,7 +50,6 @@
             margin-bottom: 25px;
         }
 
-        /* Разделительная линия */
         hr {
             border: 0;
             height: 1px;
@@ -62,7 +57,6 @@
             margin: 30px 0;
         }
 
-        /* --- НОВЫЕ СТИЛИ ДЛЯ ПРОДУМАННОГО ДОБАВЛЕНИЯ (ФИКС КНОПОК) --- */
         .add-movie-section {
             margin-bottom: 30px;
             text-align: left;
@@ -111,14 +105,12 @@
             box-shadow: 0 0 5px #8a2be2;
         }
 
-        /* Контейнер карточек добавления */
         .category-forms-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
 
-        /* Карточки добавления (фикс ширины) */
         .category-card {
             background: #1a1a2e;
             border: 1px solid #4b0082;
@@ -127,7 +119,7 @@
             display: flex;
             flex-direction: column;
             transition: transform 0.2s, box-shadow 0.2s;
-            box-sizing: border-box; /* Важно для отступов */
+            box-sizing: border-box;
         }
 
         .category-card:hover {
@@ -142,7 +134,6 @@
             text-align: center;
         }
 
-        /* Группы инпутов внутри карточек */
         .card-input-group {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -162,12 +153,10 @@
             box-sizing: border-box;
         }
 
-        /* Сетки инпутов для 2 полей */
         .card-input-group-2 {
             grid-template-columns: repeat(2, 1fr);
         }
 
-        /* --- СТИЛИ ТАБЛИЦ И СПИСКОВ (УДОБСТВО НАВИГАЦИИ) --- */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -222,11 +211,8 @@
             text-decoration: line-through;
         }
 
-        /* --- СТИЛИ ДЛЯ ВСЕХ НЕОНОВЫХ КНОПОК --- */
-
-        /* Общий стиль для всех неоновых кнопок (большая и маленькие) */
         .btn-neon {
-            display: inline-flex; /* Чтобы иконка и текст были в ряд */
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             background: transparent;
@@ -250,28 +236,24 @@
             box-shadow: 0 0 25px #8a2be2, 0 0 10px #da70d6;
         }
 
-        /* Применяем btn-neon к твоей кнопке обновления */
         .btn-update {
             margin-top: 25px;
             font-size: 1.1em;
             padding: 15px 30px;
         }
 
-        /* Иконка внутри кнопки обновления */
         .btn-update img {
-            max-height: 25px; /* Уменьшаем призрак */
+            max-height: 25px;
             margin-left: 10px;
-            filter: none; /* Убираем фильтры с призрака */
+            filter: none;
             box-shadow: none;
         }
 
-        /* Маленькие кнопки внутри карточек добавления */
         .category-card .btn-neon {
             padding: 8px 16px;
             font-size: 0.85em;
-            margin-top: auto; /* Прижимаем к низу карточки */
+            margin-top: auto;
         }
-
     </style>
 </head>
 <body>
@@ -292,40 +274,40 @@
     <div class="add-movie-section">
         <h2 class="section-title-cyan">📋 ДОБАВЛЕНИЕ НОВОГО ФИЛЬМА / СЕРИАЛА</h2>
         
-        <form class="add-form">
+        <div class="add-form">
             <div class="form-group">
                 <label for="movieTitle" class="form-label">Название:</label>
                 <input type="text" id="movieTitle" class="form-input" placeholder="Введите название...">
             </div>
-        </form>
+        </div>
 
         <div class="category-forms-container">
             <div class="category-card" style="border-color: #a020f0;">
                 <div class="card-title" style="color: #a020f0;">👀 В ТО ЧТО СМОТРИМ СЕЙЧАС</div>
                 <div class="card-input-group">
-                    <input type="text" class="card-input" placeholder="Сезон">
-                    <input type="text" class="card-input" placeholder="Серия">
-                    <input type="text" class="card-input" placeholder="Минута">
+                    <input type="text" id="nowSeason" class="card-input" placeholder="Сезон">
+                    <input type="text" id="nowEpisode" class="card-input" placeholder="Серия">
+                    <input type="text" id="nowMinute" class="card-input" placeholder="Минута">
                 </div>
-                <button class="btn-neon" style="color: #a020f0; border-color: #a020f0;">➕ ДОБАВИТЬ СЮДА</button>
+                <button onclick="sendToGitHub('now')" class="btn-neon" style="color: #a020f0; border-color: #a020f0;">➕ ДОБАВИТЬ СЮДА</button>
             </div>
 
             <div class="category-card" style="border-color: #da70d6;">
                 <div class="card-title" style="color: #da70d6;">🔮 В ХОТИМ ПОСМОТРЕТЬ</div>
                 <div class="card-input-group card-input-group-2">
-                    <input type="text" class="card-input" placeholder="Жанр">
-                    <input type="text" class="card-input" placeholder="Примечание">
+                    <input type="text" id="planGenre" class="card-input" placeholder="Жанр">
+                    <input type="text" id="planNote" class="card-input" placeholder="Примечание">
                 </div>
-                <button class="btn-neon" style="color: #da70d6; border-color: #da70d6;">➕ В ОЧЕРЕДЬ</button>
+                <button onclick="sendToGitHub('plan')" class="btn-neon" style="color: #da70d6; border-color: #da70d6;">➕ В ОЧЕРЕДЬ</button>
             </div>
 
             <div class="category-card" style="border-color: #8a2be2;">
                 <div class="card-title" style="color: #8a2be2;">💜 В УЖЕ ПОСМОТРЕЛИ</div>
                 <div class="card-input-group card-input-group-2">
-                    <input type="text" class="card-input" placeholder="Дата просм.">
-                    <input type="text" class="card-input" placeholder="Оценка">
+                    <input type="text" id="doneDate" class="card-input" placeholder="Дата просм.">
+                    <input type="text" id="doneRate" class="card-input" placeholder="Оценка">
                 </div>
-                <button class="btn-neon">➕ В ИСТОРИЮ</button>
+                <button onclick="sendToGitHub('done')" class="btn-neon">➕ В ИСТОРИЮ</button>
             </div>
         </div>
     </div>
@@ -366,7 +348,6 @@
                 <li>🔲 Мы Миллеры</li>
             </ul>
         </div>
-        
         <div class="list-block">
             <h3>💜 Уже посмотрели</h3>
             <ul>
@@ -379,8 +360,49 @@
             </ul>
         </div>
     </div>
-
 </div>
+
+<script>
+function sendToGitHub(category) {
+    const title = document.getElementById('movieTitle').value.trim();
+    
+    if (!title) {
+        alert('Сначала введи название фильма или сериала вверху! 🎬');
+        return;
+    }
+
+    // ТВОИ НАСТРОЙКИ ГИТХАБА
+    const GITHUB_USER = 'aleksshill'; 
+    const GITHUB_REPO = '-'; // Если репозиторий называется по-другому, замени прочерк
+
+    let issueTitle = '';
+    let issueBody = '';
+
+    if (category === 'now') {
+        const season = document.getElementById('nowSeason').value || '?';
+        const episode = document.getElementById('nowEpisode').value || '?';
+        const minute = document.getElementById('nowMinute').value || '??:??';
+        issueTitle = `[СЕЙЧАС СМОТРИМ] ${title}`;
+        issueBody = `Добавить в таблицу "Сейчас смотрим":\n\n🎬 Название: ${title}\n🍿 Сезон: ${season}\n📺 Серия: ${episode}\n⏱ Минута: ${minute}`;
+    } 
+    else if (category === 'plan') {
+        const genre = document.getElementById('planGenre').value || 'Не указан';
+        const note = document.getElementById('planNote').value || 'Нет примечаний';
+        issueTitle = `[ХОТИМ ПОСМОТРЕТЬ] ${title}`;
+        issueBody = `Добавить в список "Хотим посмотреть":\n\n🎬 Фильм: ${title}\n🔮 Жанр: ${genre}\n📝 Примечание: ${note}`;
+    } 
+    else if (category === 'done') {
+        const date = document.getElementById('doneDate').value || 'Сегодня';
+        const rate = document.getElementById('doneRate').value || 'Без оценки';
+        issueTitle = `[ПРОСМОТРЕНО] ${title}`;
+        issueBody = `Перенести в список "Уже посмотрели":\n\n🎬 Фильм: ${title}\n📅 Дата просмотра: ${date}\n⭐ Оценка: ${rate}`;
+    }
+
+    // Собираем правильную ссылку и открываем её в новой вкладке
+    const url = `https://github.com/${GITHUB_USER}/${GITHUB_REPO}/issues/new?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}`;
+    window.open(url, '_blank');
+}
+</script>
 
 </body>
 </html>
