@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЧТО БУДЕМ СМОТРЕТЬ????</title>
     <style>
-        /* Базовые стили темной темы из твоего кода */
+        /* Базовые стили темной темы и фона */
         body {
             background-color: #0d0d13;
             color: #e6e6fa;
@@ -18,20 +18,21 @@
             overflow-x: hidden; /* Чтобы не было горизонтальной прокрутки */
         }
 
-        /* Контейнер, адаптированный под новую ширину */
+        /* Основной контейнер с неоновым свечением */
         .container {
-            max-width: 800px; /* Увеличил, чтобы поместились новые карточки */
+            max-width: 800px; /* Увеличенная ширина для карточек */
             width: 100%;
-            background: rgba(26, 26, 46, 0.9); /* Чуть плотнее фон */
+            background: rgba(26, 26, 46, 0.9);
             border: 2px solid #8a2be2;
-            box-shadow: 0 0 25px rgba(138, 43, 226, 0.7); /* Сильнее свечение */
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.7);
             border-radius: 15px;
-            padding: 40px; /* Больше отступы внутри */
+            padding: 40px;
             box-sizing: border-box;
             text-align: center;
             position: relative;
         }
 
+        /* Заголовки с неоновым эффектом */
         h1 {
             color: #a020f0;
             text-shadow: 0 0 10px #a020f0, 0 0 20px #8a2be2;
@@ -44,7 +45,7 @@
             margin-bottom: 25px;
         }
 
-        /* Стилизация GIF-баннера */
+        /* Стилизация GIF-баннера с пришельцами */
         .gif-banner {
             border-radius: 10px;
             filter: hue-rotate(50deg) saturate(1.5);
@@ -53,6 +54,7 @@
             margin-bottom: 25px;
         }
 
+        /* Разделительная линия */
         hr {
             border: 0;
             height: 1px;
@@ -60,10 +62,10 @@
             margin: 30px 0;
         }
 
-        /* --- НОВЫЕ СТИЛИ ДЛЯ ПРОДУМАННОГО ДОБАВЛЕНИЯ --- */
+        /* --- НОВЫЕ СТИЛИ ДЛЯ ПРОДУМАННОГО ДОБАВЛЕНИЯ (ФИКС КНОПОК) --- */
         .add-movie-section {
             margin-bottom: 30px;
-            text-align: left; /* Текст внутри блока по левому краю */
+            text-align: left;
         }
 
         .section-title-cyan {
@@ -74,7 +76,6 @@
             text-align: center;
         }
 
-        /* Общая форма названия */
         .add-form {
             display: flex;
             flex-direction: column;
@@ -100,6 +101,8 @@
             border-radius: 8px;
             padding: 10px;
             font-family: inherit;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .form-input:focus {
@@ -108,14 +111,14 @@
             box-shadow: 0 0 5px #8a2be2;
         }
 
-        /* Контейнер для трех карточек добавления */
+        /* Контейнер карточек добавления */
         .category-forms-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивная сетка */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
 
-        /* Общие стили для карточек */
+        /* Карточки добавления (фикс ширины) */
         .category-card {
             background: #1a1a2e;
             border: 1px solid #4b0082;
@@ -124,6 +127,7 @@
             display: flex;
             flex-direction: column;
             transition: transform 0.2s, box-shadow 0.2s;
+            box-sizing: border-box; /* Важно для отступов */
         }
 
         .category-card:hover {
@@ -138,10 +142,10 @@
             text-align: center;
         }
 
-        /* Сетки инпутов внутри карточек */
+        /* Группы инпутов внутри карточек */
         .card-input-group {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 колонки для серий */
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
             margin-bottom: 15px;
         }
@@ -154,14 +158,16 @@
             padding: 8px;
             font-size: 0.9em;
             text-align: center;
+            width: 100%;
+            box-sizing: border-box;
         }
 
-        /* Модификации для карточек с 2 инпутами */
+        /* Сетки инпутов для 2 полей */
         .card-input-group-2 {
             grid-template-columns: repeat(2, 1fr);
         }
 
-        /* --- СТИЛИ ДЛЯ ТАБЛИЦ И СПИСКОВ (ИЗ ТВОЕГО КОДА) --- */
+        /* --- СТИЛИ ТАБЛИЦ И СПИСКОВ (УДОБСТВО НАВИГАЦИИ) --- */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -189,10 +195,10 @@
         }
 
         .lists-container {
-            display: grid; /* Используем grid для адаптивности */
+            display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            text-align: left;
             gap: 20px;
+            text-align: left;
         }
 
         .list-block h3 {
@@ -216,7 +222,7 @@
             text-decoration: line-through;
         }
 
-        /* --- СТИЛИ КНОПОК --- */
+        /* --- СТИЛИ ДЛЯ ВСЕХ НЕОНОВЫХ КНОПОК --- */
 
         /* Общий стиль для всех неоновых кнопок (большая и маленькие) */
         .btn-neon {
@@ -360,6 +366,7 @@
                 <li>🔲 Мы Миллеры</li>
             </ul>
         </div>
+        
         <div class="list-block">
             <h3>💜 Уже посмотрели</h3>
             <ul>
