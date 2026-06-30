@@ -1,1 +1,202 @@
 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔮 Our Neon Kino-Station</title>
+    <style>
+        /* Делаем полностью черный/темно-фиолетовый фон страницы */
+        body {
+            background-color: #0d0d13;
+            color: #e6e6fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        /* Контейнер нашего сайта */
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.8);
+            border: 2px solid #8a2be2;
+            box-shadow: 0 0 20px #8a2be2;
+            border-radius: 15px;
+            padding: 30px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        h1 {
+            color: #a020f0;
+            text-shadow: 0 0 10px #a020f0, 0 0 20px #8a2be2;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #da70d6;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        img {
+            border-radius: 10px;
+            filter: hue-rotate(50deg) saturate(1.5);
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+            max-width: 100%;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #8a2be2, transparent);
+            margin: 25px 0;
+        }
+
+        /* Стили таблицы серий */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: #161625;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #2a2a40;
+        }
+
+        th {
+            color: #da70d6;
+            background-color: #1a1a2e;
+        }
+
+        .time-mark {
+            color: #00ffff;
+            font-weight: bold;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        /* Стили списков фильмов */
+        .lists-container {
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+            gap: 20px;
+        }
+
+        .list-block {
+            width: 50%;
+        }
+
+        .list-block h3 {
+            color: #9370db;
+            border-bottom: 1px solid #4b0082;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            color: #e6e6fa;
+        }
+
+        .watched {
+            color: #808080;
+            text-decoration: line-through;
+        }
+
+        /* Стильная неоновая кнопка обновления */
+        .btn-update {
+            display: inline-block;
+            background: transparent;
+            color: #8a2be2;
+            border: 2px solid #8a2be2;
+            padding: 12px 24px;
+            font-weight: bold;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
+            transition: 0.3s;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .btn-update:hover {
+            background: #8a2be2;
+            color: #fff;
+            box-shadow: 0 0 20px #8a2be2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🌌 NEON KINO-STATION 🌌</h1>
+    <div class="subtitle">Наш уютный ночной кинотеатр для двоих</div>
+
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3BwN21na3hzeWV0bXp0Y2V5bXN0MzV3ZzI0c3R5cm95cm95M3ZpZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/14qg9gN9499C4w/giphy.gif" alt="Cozy Room">
+
+    <hr>
+
+    <h2>⏳ Сейчас смотрим</h2>
+    <table>
+        <tr>
+            <th>🎬 Название</th>
+            <th>🍿 Сезон</th>
+            <th>📺 Серия</th>
+            <th>⏱ Минута</th>
+        </tr>
+        <tr>
+            <td><b>Очень странные дела</b></td>
+            <td>4 сезон</td>
+            <td>7 серия</td>
+            <td class="time-mark">42:15</td>
+        </tr>
+        <tr>
+            <td><b>Атака Титанов</b></td>
+            <td>3 сезон</td>
+            <td>12 серия</td>
+            <td class="time-mark">15:04</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <div class="lists-container">
+        <div class="list-block">
+            <h3>🔮 Хотим посмотреть</h3>
+            <ul>
+                <li>🔲 Интерстеллар</li>
+                <li>🔲 Бегущий по лезвию 2049</li>
+                <li>🔲 Киберпанк: Бегущие по краю</li>
+            </ul>
+        </div>
+        <div class="list-block">
+            <h3>💜 Уже посмотрели</h3>
+            <ul>
+                <li class="watched">✅ Бойцовский клуб</li>
+                <li class="watched">✅ Дюна: Часть вторая</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <a href="https://github.com/ЗАМЕНИ_НА_СВОЙ_НИК/ЗАМЕНИ_НА_СВОЙ_РЕПОЗИТОРИЙ/issues/new?title=Update+Movie+Status&body=Название:+%0AСезон:+%0AСерия:+%0AМинута:+" target="_blank" class="btn-update">
+        📝 ОБНОВИТЬ СЕРИАЛ В ОДИН КЛИК
+    </a>
+</div>
+
+</body>
+</html>
