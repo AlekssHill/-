@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЧТО БУДЕМ СМОТРЕТЬ????</title>
     <style>
-        /* Делаем полностью черный/темно-фиолетовый фон страницы */
+        /* Базовые стили темной темы из твоего кода */
         body {
             background-color: #0d0d13;
             color: #e6e6fa;
@@ -16,19 +15,21 @@
             align-items: center;
             padding: 20px;
             margin: 0;
+            overflow-x: hidden; /* Чтобы не было горизонтальной прокрутки */
         }
 
-        /* Контейнер нашего сайта */
+        /* Контейнер, адаптированный под новую ширину */
         .container {
-            max-width: 600px;
+            max-width: 800px; /* Увеличил, чтобы поместились новые карточки */
             width: 100%;
-            background: rgba(26, 26, 46, 0.8);
+            background: rgba(26, 26, 46, 0.9); /* Чуть плотнее фон */
             border: 2px solid #8a2be2;
-            box-shadow: 0 0 20px #8a2be2;
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.7); /* Сильнее свечение */
             border-radius: 15px;
-            padding: 30px;
+            padding: 40px; /* Больше отступы внутри */
             box-sizing: border-box;
             text-align: center;
+            position: relative;
         }
 
         h1 {
@@ -43,33 +44,137 @@
             margin-bottom: 25px;
         }
 
-        img {
+        /* Стилизация GIF-баннера */
+        .gif-banner {
             border-radius: 10px;
             filter: hue-rotate(50deg) saturate(1.5);
             box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
             max-width: 100%;
+            margin-bottom: 25px;
         }
 
         hr {
             border: 0;
             height: 1px;
             background: linear-gradient(to right, transparent, #8a2be2, transparent);
-            margin: 25px 0;
+            margin: 30px 0;
         }
 
-        /* Стили таблицы серий */
+        /* --- НОВЫЕ СТИЛИ ДЛЯ ПРОДУМАННОГО ДОБАВЛЕНИЯ --- */
+        .add-movie-section {
+            margin-bottom: 30px;
+            text-align: left; /* Текст внутри блока по левому краю */
+        }
+
+        .section-title-cyan {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Общая форма названия */
+        .add-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-label {
+            color: #da70d6;
+            font-weight: bold;
+        }
+
+        .form-input {
+            background-color: #161625;
+            color: #e6e6fa;
+            border: 1px solid #4b0082;
+            border-radius: 8px;
+            padding: 10px;
+            font-family: inherit;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #8a2be2;
+            box-shadow: 0 0 5px #8a2be2;
+        }
+
+        /* Контейнер для трех карточек добавления */
+        .category-forms-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивная сетка */
+            gap: 20px;
+        }
+
+        /* Общие стили для карточек */
+        .category-card {
+            background: #1a1a2e;
+            border: 1px solid #4b0082;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+        }
+
+        .card-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        /* Сетки инпутов внутри карточек */
+        .card-input-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 колонки для серий */
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card-input {
+            background-color: #161625;
+            color: #e6e6fa;
+            border: 1px solid #4b0082;
+            border-radius: 6px;
+            padding: 8px;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        /* Модификации для карточек с 2 инпутами */
+        .card-input-group-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        /* --- СТИЛИ ДЛЯ ТАБЛИЦ И СПИСКОВ (ИЗ ТВОЕГО КОДА) --- */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
             background: #161625;
             border-radius: 8px;
             overflow: hidden;
+            margin-bottom: 25px;
         }
 
         th, td {
             padding: 12px;
             border-bottom: 1px solid #2a2a40;
+            text-align: center;
         }
 
         th {
@@ -83,16 +188,11 @@
             text-shadow: 0 0 5px #00ffff;
         }
 
-        /* Стили списков фильмов */
         .lists-container {
-            display: flex;
-            justify-content: space-between;
+            display: grid; /* Используем grid для адаптивности */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             text-align: left;
             gap: 20px;
-        }
-
-        .list-block {
-            width: 50%;
         }
 
         .list-block h3 {
@@ -116,9 +216,13 @@
             text-decoration: line-through;
         }
 
-        /* Стильная неоновая кнопка обновления */
-        .btn-update {
-            display: inline-block;
+        /* --- СТИЛИ КНОПОК --- */
+
+        /* Общий стиль для всех неоновых кнопок (большая и маленькие) */
+        .btn-neon {
+            display: inline-flex; /* Чтобы иконка и текст были в ряд */
+            align-items: center;
+            justify-content: center;
             background: transparent;
             color: #8a2be2;
             border: 2px solid #8a2be2;
@@ -127,16 +231,41 @@
             border-radius: 30px;
             text-decoration: none;
             box-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
-            transition: 0.3s;
-            margin-top: 20px;
+            transition: all 0.3s ease;
             cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 0.95em;
         }
 
-        .btn-update:hover {
+        .btn-neon:hover {
             background: #8a2be2;
             color: #fff;
-            box-shadow: 0 0 20px #8a2be2;
+            box-shadow: 0 0 25px #8a2be2, 0 0 10px #da70d6;
         }
+
+        /* Применяем btn-neon к твоей кнопке обновления */
+        .btn-update {
+            margin-top: 25px;
+            font-size: 1.1em;
+            padding: 15px 30px;
+        }
+
+        /* Иконка внутри кнопки обновления */
+        .btn-update img {
+            max-height: 25px; /* Уменьшаем призрак */
+            margin-left: 10px;
+            filter: none; /* Убираем фильтры с призрака */
+            box-shadow: none;
+        }
+
+        /* Маленькие кнопки внутри карточек добавления */
+        .category-card .btn-neon {
+            padding: 8px 16px;
+            font-size: 0.85em;
+            margin-top: auto; /* Прижимаем к низу карточки */
+        }
+
     </style>
 </head>
 <body>
@@ -145,10 +274,59 @@
     <h1>ЧТО БУДЕМ СМОТРЕТЬ???</h1>
     <div class="subtitle">Наш уютный котокинотеатр для двоих</div>
 
-   <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWNqYTk0eW50ZDZuMGI5cGd3OHByNTlnZWNjaTN3ZzJ4cWY2a29wYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/x2GRI1mBm4kBXv0njJ/giphy.gif" alt="Cozy Aliens Watching Movie">
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWNqYTk0eW50ZDZuMGI5cGd3OHByNTlnZWNjaTN3ZzJ4cWY2a29wYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/x2GRI1mBm4kBXv0njJ/giphy.gif" alt="Cozy Aliens Watching Movie" class="gif-banner">
+    
+    <a href="https://github.com/aleksshill/-/issues/new?title=Update+Movie+Status&body=Название:+%0AСезон:+%0AСерия:+%0AМинута:+" target="_blank" class="btn-neon btn-update">
+        📝 ОБНОВИТЬ КОТОДАННЫЕ
+        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGMwcGNhb3A0enlyeGNndWUzYm9xOHEzeXc3ajdyc3NzNTJrbGYxYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/3oKIPyD5zyOZD0SGM8/giphy.gif" alt="Happy Ghost Icon">
+    </a>
+
     <hr>
 
-    <h2>⏳ Сейчас смотрим</h2>
+    <div class="add-movie-section">
+        <h2 class="section-title-cyan">📋 ДОБАВЛЕНИЕ НОВОГО ФИЛЬМА / СЕРИАЛА</h2>
+        
+        <form class="add-form">
+            <div class="form-group">
+                <label for="movieTitle" class="form-label">Название:</label>
+                <input type="text" id="movieTitle" class="form-input" placeholder="Введите название...">
+            </div>
+        </form>
+
+        <div class="category-forms-container">
+            <div class="category-card" style="border-color: #a020f0;">
+                <div class="card-title" style="color: #a020f0;">👀 В ТО ЧТО СМОТРИМ СЕЙЧАС</div>
+                <div class="card-input-group">
+                    <input type="text" class="card-input" placeholder="Сезон">
+                    <input type="text" class="card-input" placeholder="Серия">
+                    <input type="text" class="card-input" placeholder="Минута">
+                </div>
+                <button class="btn-neon" style="color: #a020f0; border-color: #a020f0;">➕ ДОБАВИТЬ СЮДА</button>
+            </div>
+
+            <div class="category-card" style="border-color: #da70d6;">
+                <div class="card-title" style="color: #da70d6;">🔮 В ХОТИМ ПОСМОТРЕТЬ</div>
+                <div class="card-input-group card-input-group-2">
+                    <input type="text" class="card-input" placeholder="Жанр">
+                    <input type="text" class="card-input" placeholder="Примечание">
+                </div>
+                <button class="btn-neon" style="color: #da70d6; border-color: #da70d6;">➕ В ОЧЕРЕДЬ</button>
+            </div>
+
+            <div class="category-card" style="border-color: #8a2be2;">
+                <div class="card-title" style="color: #8a2be2;">💜 В УЖЕ ПОСМОТРЕЛИ</div>
+                <div class="card-input-group card-input-group-2">
+                    <input type="text" class="card-input" placeholder="Дата просм.">
+                    <input type="text" class="card-input" placeholder="Оценка">
+                </div>
+                <button class="btn-neon">➕ В ИСТОРИЮ</button>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2><font color="#9370DB">⏳ Сейчас смотрим</font></h2>
     <table>
         <tr>
             <th>🎬 Название</th>
@@ -169,8 +347,6 @@
             <td class="time-mark">??:??</td>
         </tr>
     </table>
-
-    <hr>
 
     <div class="lists-container">
         <div class="list-block">
@@ -197,12 +373,6 @@
         </div>
     </div>
 
-    <hr>
-
-    <a href="https://github.com/aleksshill/-/issues/new?title=Update+Movie+Status&body=Название:+%0AСезон:+%0AСерия:+%0AМинута:+" target="_blank" class="btn-update">
-        📝 ОБНОВИТЬ КОТОДАННЫЕ
-       <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGMwcGNhb3A0enlyeGNndWUzYm9xOHEzeXc3ajdyc3NzNTJrbGYxYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/3oKIPyD5zyOZD0SGM8/giphy.gif" alt="A tiny, stylized white ghost figure with a pink blush, floating happily against a purple and dark blue space background, within a black frame, as seen in image_1.png. It has small horns and small arms and eyes. The GIF has a soft glow effect.">
-    </a>
 </div>
 
 </body>
