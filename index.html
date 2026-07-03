@@ -342,6 +342,8 @@
                 <li>🔲 Закулисье (2026)</li>
                 <li>🔲 Мы Миллеры</li>
                 <li>🔲 Киберсталкер</li>
+                <li>🔲 Мистер Пиклз</li>
+                <li>🔲 Счастливые лесные друзья</li>
             </ul>
         </div>
         <div class="list-block">
@@ -367,9 +369,8 @@ function sendToGitHub(category) {
         return;
     }
 
-    // ТВОИ НАСТРОЙКИ ГИТХАБА
     const GITHUB_USER = 'aleksshill'; 
-    const GITHUB_REPO = '-'; // Если репозиторий называется по-другому, замени прочерк
+    const GITHUB_REPO = '-'; 
 
     let issueTitle = '';
     let issueBody = '';
@@ -394,7 +395,7 @@ function sendToGitHub(category) {
         issueBody = `Перенести в список "Уже посмотрели":\n\n🎬 Фильм: ${title}\n📅 Дата просмотра: ${date}\n⭐ Оценка: ${rate}`;
     }
 
-    // Собираем правильную ссылку и открываем её в новой вкладке
+    
     const url = `https://github.com/${GITHUB_USER}/${GITHUB_REPO}/issues/new?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}`;
     window.open(url, '_blank');
 }
